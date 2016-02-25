@@ -133,8 +133,10 @@ install:
 	done
 	$(INSTALL) -m 755 $(BINDIR)/mimic_time $(DESTDIR)$(INSTALLBINDIR)
 #       The libraries: static and shared (if built)
-	cp -pd $(mimic_LIBS_deps) $(DESTDIR)$(INSTALLLIBDIR)
+	#cp -pd $(mimic_LIBS_deps) $(DESTDIR)$(INSTALLLIBDIR)
+	cp -pR $(mimic_LIBS_deps) $(DESTDIR)$(INSTALLLIBDIR)
 ifdef SHFLAGS
-	cp -pd $(SHAREDLIBS) $(VERSIONSHAREDLIBS) $(DESTDIR)$(INSTALLLIBDIR)
+	#cp -pd $(SHAREDLIBS) $(VERSIONSHAREDLIBS) $(DESTDIR)$(INSTALLLIBDIR)
+	cp -pR $(SHAREDLIBS) $(VERSIONSHAREDLIBS) $(DESTDIR)$(INSTALLLIBDIR)
 endif
 
