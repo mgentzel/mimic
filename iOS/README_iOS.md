@@ -1,12 +1,21 @@
 # Build System for iOS and Universal Static Library
 
-The build system added to the /iOS directory will allow the creation of a basic mimic static library for inclusion in an iOS project in Xcode that allows one to write C and Objective-C code agianst the public api.
+The build system added to the /iOS directory will allow the creation of a basic mimic static library for inclusion in an iOS project in Xcode that allows one to write C and Objective-C code against the public api.
 
 There are two bash scripts for working with iOS library binaries for specific architectures and a universal library.
 
 clean_mimic_iOS.sh will remove any library and supporting files created by a previous build.
 
 build_mimic_iOS.sh will create the libraries and supporting files.
+
+## Preparing For Building on OSX (first time)
+
+#### You must modify the Makefile in mimic/main/Makefile
+If implementing for the first time in new original source not prepared for OSX or iOS
+For the prefix configure flag to have effect, and install the specific binaries to discrete directories, the cp -pd arg flags in two cases near the bottom of the file must be changed for OSX
+These changes are added and commented out in this version of the code and can be toggled by commenting/uncommenting appropriately near line 135
+The -d flag is interpreted differently in OSX - needs to be -R, so cp -pd must be changed to cp -pR  
+see: http://stackoverflow.com/questions/23001775/error-installing-flite-on-mac-osx
 
 ## Building
 
@@ -26,7 +35,7 @@ The include directory of each separate architecture has header files, and one se
 
 The libmimic.a library file is now ready to be added to an iOS project in Xcode as a static library.
 The header files also need to be added as part of that static library in the iOS Xcode project.
-The simplest approach is to create an Objective-C iOS Xcode project and add the static library and headers. Once done you can use C or Objective-C to utilize any of the properties and methods exposed n=by the header files. Details or step by step instructions are beyond the scope of this document, but this a fairly strandard practice in iOS development and many examples exist online.
+The simplest approach is to create an Objective-C iOS Xcode project and add the static library and headers. Once done you can use C or Objective-C to utilize any of the properties and methods exposed by the header files. Details or step by step instructions are beyond the scope of this document, but this a fairly standard practice in iOS development and many examples exist online.
 
 ## Limitations
 

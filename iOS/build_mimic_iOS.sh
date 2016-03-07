@@ -13,6 +13,7 @@
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Makefile in mimic/main/Makefile Requires Modification !!!!!!!!!!!!!!!!!!!!!
 ## if implementing for the first time in new original source not prepared for OSX or iOS
 ## For the prefix configure flag to have effect, and install the specific binaries to discrete directories, the cp -pd arg flags in two cases near the bottom of the file must be changed for OSX
+## These changes are added and commented out in this version of the code and can be toggled by commenting/uncommenting appropriately near line 135
 ## -d flag is interpreted differently in OSX - needs to be -R, so cp -pd must be changed to cp -pR  
 ## see: http://stackoverflow.com/questions/23001775/error-installing-flite-on-mac-osx
 
